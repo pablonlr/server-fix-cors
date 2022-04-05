@@ -31,8 +31,6 @@ func main() {
 			fileServer := http.FileServer(http.Dir(path))
 			http.Handle("/", fileServer)
 			sport := ":" + strconv.Itoa(port)
-			log.Println(path)
-			log.Println(sport)
 			log.Printf("Starting server at port %s", sport)
 			if err := http.ListenAndServe(sport, nil); err != nil {
 				return err
